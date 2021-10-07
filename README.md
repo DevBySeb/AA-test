@@ -18,7 +18,7 @@
 - The search history should be persisted in localStorage
 - The logo can be found in the assets folder
 
-## What we will look at extra carefully:
+## What we will look at extra carefully
 - Reactive forms
 - Sanity checking
 - Design pattern
