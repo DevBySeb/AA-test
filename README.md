@@ -8,7 +8,7 @@
 - Create an Angular application in the repo
 
 ## Task
-- Implement a simple search and select history function according to the FIGMA link (https://www.figma.com/file/RjhfsxK7lKOreCO7nprhEc/Sebbe-FrontEnd-test?node-id=0%3A1)
+- Implement a simple search and select history function according to the FIGMA link (https://www.figma.com/file/RjhfsxK7lKOreCO7nprhEc/AA---FrontEnd-test)
 - The search should use a public REST API of choice 
     - A suggestion could be: https://api.openbrewerydb.org/breweries/search?page=1&per_page=5&query= (where you need to pass the search query as a string)
 - Search for anything
