@@ -1,0 +1,25 @@
+<div id="container" fxLayout="column" fxLayoutAlign="start center">
+    <div>
+        <img id="logo" src="./../../../assets/aa-test-logo.svg" alt="logo">
+    </div>
+
+    <div [formGroup]="searchForm">
+        <div fxLayout="row">
+            <div class="search-div" fxFlex.lt-sm="202px" fxFlex="383px">
+                <input formControlName="searchTextControl" class="search-height search-bar" type="text" (input)="readInput($event.target.value)" placeholder=" Search here...">
+            </div>
+            <div fxFlex="48px" class="icon-div search-height" fxLayoutAlign="center center">
+                <mat-icon>search</mat-icon>
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-search-list (fetchAllItems)="retrieveAllItems($event)" (itemSelectedEvent)="sendItemDescription($event)" [itemsFetched]="searchItemsFetched"></app-search-list>
+    </div>
+    <div>
+        <app-item-description [itemSelected]="itemSelected"></app-item-description>
+    </div>
+    <div>
+        <app-search-history></app-search-history>
+    </div>
+</div>

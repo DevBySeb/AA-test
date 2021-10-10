@@ -1,0 +1,38 @@
+<div>
+    <div id="item-description" *ngIf="itemSelected" fxFlex.lt-sm="250px" fxFlex="431px">
+        <div fxLayout="column">
+            <div fxLayout="row">
+                <div fxFlex="93" class="title">
+                    {{itemSelected?.name}}
+                </div>
+                <div fxFlex="7" class="close-icon">
+                    <mat-icon (click)="closeDescription()">close</mat-icon>
+                </div>
+            </div>
+            <div>
+                <mat-divider></mat-divider>
+            </div>
+            <div class="properties">
+                <div>
+                    <b>Street:</b> {{itemSelected?.street}}
+                </div>
+                <div>
+                    <b>City:</b> {{itemSelected?.city}}
+                </div>
+                <div>
+                    <b>State:</b> {{itemSelected?.state}}
+                </div>
+                <div>
+                    <b>Postal Code:</b> {{itemSelected?.postal_code}}
+                </div>
+                <div>
+                    <b>Phone:</b> {{itemSelected?.phone}}
+                </div>
+                <div>
+                    <b>Website:</b> {{itemSelected?.website_url}}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

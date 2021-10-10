@@ -1,0 +1,19 @@
+@import "./../../../../styles.scss";
+
+#history {
+  padding-bottom: $dimentions-xs;
+}
+
+.history-item {
+  padding: 4px;
+  background-color: white;
+  font-family: $font;
+  color: $grey-600;
+  font-family: 16px;
+  border-radius: 4px;
+  height: $dimentions-s;
+  mat-icon {
+    font-size: 32px;
+    cursor: pointer;
+  }
+}

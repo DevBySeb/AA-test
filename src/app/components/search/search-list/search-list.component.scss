@@ -1,0 +1,25 @@
+@import "./../../../../styles.scss";
+
+.panel-items {
+  background-color: white;
+  width: $dimentions-md;
+  padding-top: 5px;
+  button {
+    margin: 10px;
+    font-family: $font;
+    color: $grey-700;
+  }
+  border-radius: 0 0 4px 4px;
+}
+
+mat-divider {
+  width: 100%;
+}
+
+.item {
+  border-bottom: 1px solid lightgray;
+  color: $grey-600;
+  font-family: $font;
+  padding-left: 6px;
+  cursor: pointer;
+}

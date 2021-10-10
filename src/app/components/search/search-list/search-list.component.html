@@ -1,0 +1,16 @@
+<div fxLayout="row">
+    <div fxFlexAlign="center" fxFlex.lt-sm="250px" fxFlex="431px" class="panel-items" *ngIf="itemsFetched?.length > 0">
+        <div  fxLayout="column" fxLayoutGap="10px">
+            <div *ngFor="let item of itemsFetched" fxLayoutAlign="start start">
+                <div fxLayoutAlign="start start" fxFlex="100" class="item" (click)="selectItem(item)">
+                    {{item.name}}
+                </div>
+            </div>
+        </div>
+        
+        <div fxLayoutAlign="end end">
+            <button mat-button (click)="searchAllItems()">Search all results</button>
+        </div>        
+    </div>
+</div>
+

@@ -1,0 +1,59 @@
+@import "./../../../../styles.scss";
+
+@media screen and (min-width: 600px) {
+  mat-divider {
+    color: $grey-300;
+  }
+
+  .title {
+    font-size: $title-size;
+  }
+
+  .properties {
+    font-size: 16px;
+  }
+
+  .close-icon {
+    mat-icon {
+      font-size: 33px;
+      cursor: pointer;
+    }
+  }
+}
+
+.title {
+    color: $grey-700;
+    padding: 5px 0;
+    font-weight: bold;
+  }
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: $title-size-s;
+  }
+
+  .properties {
+    font-size: 13px;
+    color: $grey-700;
+  }
+
+  .close-icon {
+    mat-icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+#item-description {
+  margin-top: $margin-sm;
+  background-color: white;
+  width: $dimentions-md;
+  border-radius: 4px;
+  font-family: $font;
+  padding: 4px;
+}
+
+mat-divider {
+  color: $grey-300;
+}

@@ -1,0 +1,8 @@
+<div fxLayout="column" id="history-list" *ngIf="historyItems?.length > 0">
+    <div class="title">Search history</div>
+    <div *ngFor="let item of historyItems">
+        <div>
+            <app-history-item [historyItem]="item"></app-history-item>
+        </div>
+    </div>
+</div>
