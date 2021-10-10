@@ -1,0 +1,8 @@
+<div id="history" fxLayout="row">
+        <div fxFlex.lt-sm="250px" fxFlex="431px" class="history-item" fxLayoutAlign="start center">
+            <div fxFlex="90">{{historyItem?.name}} - {{historyItem?.date}}</div>
+            <div fxFlex="10" fxLayoutAlign="center center">
+                <div><mat-icon (click)="deleteHistoryItem()">close</mat-icon></div>                
+            </div>
+        </div>
+</div>

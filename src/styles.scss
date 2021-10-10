@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+$font: "Roboto";
+
+$grey-900: #131313;
+$grey-800: #333333;
+$grey-700: #4E4A4A;
+$grey-600: #717171;
+$grey-500: #8B8B8B;
+$grey-400: #ACACAC;
+$grey-300: #D1D1D1;
+$grey-200: #E3E3E3;
+$grey-100: #EEEEEE;
+$grey-50: #F7F7F7;
+
+$dimentions-md: 431px;
+$dimentions-s: 48px;
+$dimentions-xs: 10px;
+
+$margin-sm: 15px;
+
+$title-size: 20px;
+$title-size-s: 15px;
+
+body, html {
+  min-height: 100vh;
+  background: linear-gradient(360deg, #5983c1 0%, #304a70 100%);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.search-height {
+  height: 56px;
+}
