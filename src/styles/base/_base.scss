@@ -1,0 +1,29 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+  html {
+    height: 100%;
+  }
+  body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background: linear-gradient(360deg, $light-blue 0%, $dark-blue 100%);
+    background-attachment: fixed;
+  }
+  .cursor{
+    cursor: pointer;
+  }
+  ul {
+    list-style: none;
+  }
+  @media only screen and (max-width: $small-phone) {
+    .container {
+      padding: 0 15px;
+    }
+  }
+  
