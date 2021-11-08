@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="logo">
+    <a href="#" class="">
+      <img class="logo--img" src="assets/aa-test-logo.svg" alt="search.com" />
+    </a>
+  </div>
+  <div class="search-page">
+    <section class="search-box">
+      <div class="search-box__form">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+          <input
+            id="search-box__input"
+            type="text"
+            autocomplete="off"
+            formControlName="search"
+            placeholder="Search here"
+            (keyup)="searchTerm($event)"/>
+          <button
+            type="submit"
+            class="search-box__btn"
+            [disabled]="!searchForm.valid || isLoading">
+            <img src="assets/search.png" alt="search" />
+          </button>
+        </form>
+      </div>
+
+      <div class="no-data" *ngIf="isLoading">Loading...</div>
+
+      <div *ngIf="showSearchResults && !showExpandedView">
+        <ul class="search-list">
+          <li
+            class="search-item"
+            *ngFor="let item of searchResult"
+            (click)="showFullSearch(item.id)"
+            tabIndex="0">
+            {{ item.name }}
+          </li>
+          <li class="footer-btn" *ngIf="showMore">
+            <button class="btn show-more" (click)="showAll()">
+              See all results
+            </button>
+          </li>
+          <li class="no-data" *ngIf="!searchResult.length">No results found</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="search-result" *ngIf="showExpandedView">
+      <div class="search-result__header">
+        <h2 class="search-result__heading">{{ selectedItem.name }}</h2>
+        <button class="icon close cursor" (click)="close()"></button>
+      </div>
+      <div class="search-result__body">
+        <p *ngFor="let item of selectedItem | keyvalue">
+          {{ item.key }}:{{ item.value }}
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="search-history"
+      *ngIf="!showSearchResults && !showExpandedView && searchHistory.length">
+      <h2 class="search-history-heading">Search history</h2>
+      <ul class="search-history-list">
+        <li class="search-history-item" *ngFor="let item of searchHistory">
+          <span>{{ item.name }} - {{ item.date }}</span>
+          <button class="icon close sm-close cursor"></button>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+</div>
