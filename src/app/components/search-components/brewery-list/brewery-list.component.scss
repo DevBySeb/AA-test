@@ -1,0 +1,40 @@
+.mat-card {
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  width: 100%;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0.75em .75em 0 .75em;
+  height: 45px;
+  box-shadow: 1px 1px 1px 0px lightgrey;
+  margin-top: 8px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.buttons {
+  margin-top: 10px;
+  height: 38px;
+  color: dodgerblue;
+}
+
+.brewery-list {
+  border: 1px solid #f0f0f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+  align-items: stretch;
+}

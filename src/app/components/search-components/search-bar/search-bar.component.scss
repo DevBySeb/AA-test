@@ -1,0 +1,32 @@
+.search-bar {
+  display: flex;
+  height: 36px;
+  margin: 0 15px 0 0;
+  border: 1px solid lightskyblue;
+  border-radius: 16px;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 30px 30px 30px;
+}
+
+.search-btn {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+
+  mat-icon {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.mat-input-element {
+  padding: 0 15px 0 15px;
+}
