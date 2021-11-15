@@ -18,5 +18,21 @@
 
 .content-card {
   width: 60%;
+  max-width: 600px;
   margin: 10px 0 50px 0;
 }
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .content-card {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .content-card {
+    width: calc(100% - 20px);
+  }
+
+}
+
+

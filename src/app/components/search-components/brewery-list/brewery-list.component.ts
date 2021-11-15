@@ -40,10 +40,6 @@ export class BreweryListComponent implements OnInit, OnDestroy {
       });
 
     const requestSubscription = this.store.pipe(select(selectBreweryRequest)).subscribe((searchBreweryRequest) => {
-      // if the search text has changed reset the breweryList
-      if (searchBreweryRequest.query !== this.searchRequest.query) {
-        this.breweryList = [];
-      }
       this.searchRequest = searchBreweryRequest;
     });
     this.subscription.add(requestSubscription);

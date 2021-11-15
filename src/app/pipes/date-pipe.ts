@@ -6,7 +6,8 @@ import * as moment from 'moment'
 })
 export class DatePipe implements PipeTransform {
   transform(time: any, args?: any): any {
-    return moment.unix(time).format('MMMM Do YYYY, h:mm:ss A')
+
+    return moment(time).format('YYYY-MM-DD, HH:MM')
 
   }
 }

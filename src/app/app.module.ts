@@ -7,7 +7,7 @@ import {NavbarComponent} from './components/shared-components/navbar/navbar.comp
 import {FooterComponent} from './components/shared-components/footer/footer.component';
 import {StoreModule} from "@ngrx/store";
 import {metaReducers, reducers} from "./store";
-import {FormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {EffectsModule} from "@ngrx/effects";
@@ -49,7 +49,7 @@ import {InfoBoxComponent} from './components/shared-components/info-box/info-box
   imports: [
     CommonModule,
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     EffectsModule.forRoot([ApplicationEffects]),
     StoreModule.forRoot(reducers, {metaReducers}),

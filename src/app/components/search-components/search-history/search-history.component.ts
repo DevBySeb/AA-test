@@ -34,7 +34,7 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
     const updatedSearchHistory = [...this.searchHistory];
     updatedSearchHistory.splice(index, 1);
     this.store.dispatch(setSearchHistory({searchHistory: updatedSearchHistory}));
-    if(updatedSearchHistory.length === 0){
+    if (updatedSearchHistory.length === 0) {
       this.store.dispatch(setView({view: CARD_STATE.NONE}));
     }
   }

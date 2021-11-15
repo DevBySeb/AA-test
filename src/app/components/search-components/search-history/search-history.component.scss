@@ -10,6 +10,11 @@
   color: #717171;
   margin-bottom: 8px;
   border-radius: 24px;
+
+  span {
+    margin-left: 10px;
+    margin-right: 5px;
+  }
 }
 
 .card {
@@ -23,3 +28,38 @@
     font-size: 1rem;
   }
 }
+
+.title {
+  word-break: break-all;
+  word-wrap: break-word;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+
+@media screen and (max-width: 768px) {
+  .title {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 8px 8px 0;
+  }
+  .search-history-entry {
+    border-radius: 2px;
+
+    span {
+      margin: 5px 0 0;
+    }
+
+    .close-button {
+      display: flex;
+      align-self: flex-start;
+      padding-top: 2px;
+    }
+  }
+
+  .card {
+    padding: 8px 8px;
+  }
+}
+

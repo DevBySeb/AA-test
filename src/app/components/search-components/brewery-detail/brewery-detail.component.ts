@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
 @Component({
   selector: 'app-brewery-detail',
   templateUrl: './brewery-detail.component.html',
-  styleUrls: ['./brewery-detail.component.css']
+  styleUrls: ['./brewery-detail.component.scss']
 })
 export class BreweryDetailComponent implements OnInit {
   brewery$: Observable<Brewery | null> = this.store.pipe(select(selectSelectedBrewery));

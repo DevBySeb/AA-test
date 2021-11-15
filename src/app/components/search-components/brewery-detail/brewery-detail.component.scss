@@ -19,7 +19,7 @@
 
 .card-content {
   min-height: 50px;
-  padding-top: 16px;
+  padding-top: 8px;
 }
 
 .row {
@@ -29,7 +29,7 @@
 
 .detail-left {
   width: 20%;
-  min-width: 100px;
+  min-width: 80px;
   color: #717171;
 }
 
@@ -40,8 +40,20 @@
 }
 
 
-.card-content-body-title {
-  text-align: justify;
-  font-weight: 500;
-  font-size: 18px;
+@media screen and (max-width: 768px) {
+  .title {
+    padding: 10px 0 10px 0;
+    font-size: 0.8em;
+  }
+  .card-content {
+    font-size: 0.9em;
+  }
+
+  .detail-right {
+    margin: 0 0 0 10px;
+    width: 80%;
+    min-width: 140px;
+    word-break: break-all;
+  }
 }
+

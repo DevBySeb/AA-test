@@ -43,7 +43,7 @@ export class ApplicationEffects {
     this.actions.pipe(
       ofType(brewerySelected),
       switchMap(({selectedBrewery}) => {
-        const currentSearch: SearchHistory = {query: selectedBrewery.name, datetime: Date.now()};
+        const currentSearch: SearchHistory = {query: selectedBrewery.name, dateTime: Date.now()};
         let updatedSearchHistoryArray = [currentSearch];
         const localStorageValue = localStorage.getItem(LOCAL_STORAGE_SEARCH_HISTORY);
         if (localStorageValue) {
@@ -81,7 +81,7 @@ export class ApplicationEffects {
         if (localStorageValue) {
           try {
             const existingHistory = JSON.parse(localStorageValue);
-            if(existingHistory?.length > 0){
+            if (existingHistory?.length > 0) {
               return [
                 setSearchHistory({searchHistory: existingHistory}),
                 setView({view: CARD_STATE.SEARCH_HISTORY})];

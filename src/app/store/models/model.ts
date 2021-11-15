@@ -38,7 +38,7 @@ export interface SearchBreweryRequest {
 
 export interface SearchHistory {
   query: string;
-  datetime: number;
+  dateTime: number;
 }
 
 export interface Brewery {

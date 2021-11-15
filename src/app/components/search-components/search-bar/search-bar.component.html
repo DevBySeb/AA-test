@@ -1,7 +1,9 @@
 <div class="search">
-  <input (keyup.enter)="search()" [(ngModel)]="searchText" aria-label="Search" class="search-bar" matInput
+  <input (keyup.enter)="searchControl.valid? search():null" [formControl]="searchControl" aria-label="Search"
+         class="search-bar" matInput
          placeholder="Search" type="search">
-  <button (click)="search()" [disabled]="searchText === ''" class="search-btn" color="basic" mat-mini-fab type="submit">
+  <button (click)="search()" [disabled]="searchControl.invalid" class="search-btn" color="basic" mat-mini-fab
+          type="submit">
     <mat-icon>search</mat-icon>
   </button>
 </div>
