@@ -71,5 +71,9 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     this.store.dispatch(searchBrewery(searchRequest));
   }
 
+  isShowAllResultButtonVisible(): boolean{
+    return (this.breweryList.length === DEFAULT_SEARCH_LIMIT) && (this.searchRequest.limit !== MAX_SEARCH_LIMIT);
+  }
+
 
 }

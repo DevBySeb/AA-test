@@ -4,7 +4,7 @@
       {{brewery.name}}
     </mat-list-option>
   </mat-selection-list>
-  <div *ngIf="(breweryList.length !== 0) && (searchRequest.limit !== MAX_SEARCH_LIMIT)" class="actions">
+  <div *ngIf="isShowAllResultButtonVisible()" class="actions">
     <button (click)="fetchCompleteBreweryList()" class="buttons" mat-stroked-button>SHOW ALL RESULTS</button>
   </div>
   <app-info-box *ngIf="(breweryList.length === 0)"
