@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {InfoBoxComponent} from './info-box.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {MatIconModule} from "@angular/material/icon";
 
 describe('InfoBoxComponent', () => {
   let component: InfoBoxComponent;
@@ -8,7 +9,9 @@ describe('InfoBoxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InfoBoxComponent]
+      imports: [MatIconModule],
+      declarations: [InfoBoxComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   });

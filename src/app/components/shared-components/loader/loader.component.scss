@@ -1,5 +1,5 @@
 .overlay-layer {
-  position: absolute;
+  position: relative;
   display: flex;
   align-content: stretch;
   width: 100%;
@@ -9,9 +9,6 @@
 }
 
 .spinner-position {
-  position: relative;
-  top: -50%;
-  left: -25%;
   z-index: 10;
 }
 

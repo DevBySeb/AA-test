@@ -39,10 +39,6 @@ export const reducer = createReducer(
     ...state,
     selectedBrewery
   })),
-  on(setSelectedBrewery, (state, {selectedBrewery}) => ({
-    ...state,
-    selectedBrewery
-  })),
   on(setSearchHistory, (state, {searchHistory}) => ({
     ...state,
     searchHistory

@@ -19,8 +19,10 @@ export class SearchBarComponent {
   }
 
   search(): void {
-    this.store.dispatch(searchBrewery(
-      {query: this.searchControl.value.trim(), limit: DEFAULT_SEARCH_LIMIT}));
+    if (this.searchControl.valid) {
+      this.store.dispatch(searchBrewery(
+        {query: this.searchControl.value.trim(), limit: DEFAULT_SEARCH_LIMIT}));
+    }
   }
 
 

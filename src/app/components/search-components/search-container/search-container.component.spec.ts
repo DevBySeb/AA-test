@@ -1,6 +1,9 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SearchContainerComponent} from './search-container.component';
+import {provideMockStore} from "@ngrx/store/testing";
+import {initialApplicationState} from "../../../store/models/model";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
 describe('SearchContainerComponent', () => {
   let component: SearchContainerComponent;
@@ -8,7 +11,9 @@ describe('SearchContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SearchContainerComponent]
+      declarations: [SearchContainerComponent],
+      providers: [provideMockStore({initialState: initialApplicationState})],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   });

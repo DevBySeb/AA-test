@@ -1,5 +1,5 @@
 <div class="search">
-  <input (keyup.enter)="searchControl.valid? search():null" [formControl]="searchControl" aria-label="Search"
+  <input (keyup.enter)="search()" [formControl]="searchControl" aria-label="Search"
          class="search-bar" matInput
          placeholder="Search" type="search">
   <button (click)="search()" [disabled]="searchControl.invalid" class="search-btn" color="basic" mat-mini-fab

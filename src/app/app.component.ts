@@ -9,7 +9,6 @@ import {loadSearchHistory} from "./store/actions/actions";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'AA-test';
 
   constructor(private store: Store<ApplicationState>) {
   }

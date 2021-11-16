@@ -1,14 +1,16 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {SearchBarComponent} from './search-bar.component';
+import {provideMockStore} from "@ngrx/store/testing";
+import {initialApplicationState} from "../../../store/models/model";
 
-describe('NavbarComponent', () => {
+describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SearchBarComponent]
+      declarations: [SearchBarComponent],
+      providers: [provideMockStore({initialState: initialApplicationState})],
     })
       .compileComponents();
   });
