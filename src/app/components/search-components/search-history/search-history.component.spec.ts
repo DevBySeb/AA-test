@@ -39,16 +39,16 @@ describe('SearchHistoryComponent', () => {
   it('should create and show search History', () => {
     expect(component).toBeTruthy();
     expect(component.searchHistory).toEqual([]);
-    let listElements = fixture.debugElement.queryAll(By.css('.query'));
-    let innerTexts = listElements.map((element: DebugElement) => element.nativeElement.innerText);
-    expect(innerTexts).toEqual([]);
+    let breweryHistoryListElement = fixture.debugElement.queryAll(By.css('.query'));
+    let breweryHistoryListElementNameArray = breweryHistoryListElement.map((element: DebugElement) => element.nativeElement.innerText);
+    expect(breweryHistoryListElementNameArray).toEqual([]);
     store.overrideSelector(selectSearchHistory, searchHistory);
     store.refreshState();
     fixture.detectChanges();
-    listElements = fixture.debugElement.queryAll(By.css('.query'));
-    innerTexts = listElements.map((element: DebugElement) => element.nativeElement.innerText);
+    breweryHistoryListElement = fixture.debugElement.queryAll(By.css('.query'));
+    breweryHistoryListElementNameArray = breweryHistoryListElement.map((element: DebugElement) => element.nativeElement.innerText);
     expect(component.searchHistory).toEqual(searchHistory);
-    expect(innerTexts).toEqual(['Sports Bar', '2 Dogz and A Guy Brewing']);
+    expect(breweryHistoryListElementNameArray).toEqual(['Sports Bar', '2 Dogz and A Guy Brewing']);
   });
 
   it('should remove search history and dispatch setSearchHistory', () => {

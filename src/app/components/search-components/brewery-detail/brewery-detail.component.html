@@ -1,8 +1,6 @@
 <div *ngIf="brewery$ | async as brewery" class="card">
   <header>
-    <div class="title">
-      {{brewery.name}}
-    </div>
+    <div class="title">{{brewery.name}}</div>
     <div>
       <button (click)="closeBreweryDetailView()" aria-label="Close" mat-icon-button>
         <mat-icon>close</mat-icon>

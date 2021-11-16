@@ -76,16 +76,16 @@ describe('BreweryListComponent', () => {
   it('should create and show Brewery List', () => {
     expect(component).toBeTruthy();
     expect(component.breweryList).toEqual([]);
-    let listElements = fixture.debugElement.queryAll(By.css('mat-list-option'));
-    let innerTexts = listElements.map((element: DebugElement) => element.nativeElement.innerText);
-    expect(innerTexts).toEqual([]);
+    let breweryListElements = fixture.debugElement.queryAll(By.css('mat-list-option'));
+    let breweryListElementNameArray = breweryListElements.map((element: DebugElement) => element.nativeElement.innerText);
+    expect(breweryListElementNameArray).toEqual([]);
     store.overrideSelector(selectBreweryResponse, searchBreweryResponse);
     store.refreshState();
     fixture.detectChanges();
-    listElements = fixture.debugElement.queryAll(By.css('mat-list-option'));
-    innerTexts = listElements.map((element: DebugElement) => element.nativeElement.innerText.trim());
+    breweryListElements = fixture.debugElement.queryAll(By.css('mat-list-option'));
+    breweryListElementNameArray = breweryListElements.map((element: DebugElement) => element.nativeElement.innerText.trim());
     expect(component.breweryList).toEqual(searchBreweryResponse);
-    expect(innerTexts).toEqual(searchBreweryResponse.map(entry => entry.name));
+    expect(breweryListElementNameArray).toEqual(searchBreweryResponse.map(entry => entry.name));
   });
 
   it('should dispatch brewerySelected when native element clicked', () => {
@@ -94,8 +94,8 @@ describe('BreweryListComponent', () => {
     store.overrideSelector(selectBreweryResponse, searchBreweryResponse);
     store.refreshState();
     fixture.detectChanges();
-    const listElement = fixture.debugElement.query(By.css('mat-list-option'));
-    listElement.triggerEventHandler('click', null);
+    const breweryListElement = fixture.debugElement.query(By.css('mat-list-option'));
+    breweryListElement.triggerEventHandler('click', null);
     expect(handleBreweryListElementClickSpy).toHaveBeenCalled();
     expect(dispatchSpy).toHaveBeenCalledWith(brewerySelected({selectedBrewery: searchBreweryResponse[0]}));
     expect(dispatchSpy).toHaveBeenCalledWith(setView({view: CARD_STATE.BREWERY_DETAIL}));

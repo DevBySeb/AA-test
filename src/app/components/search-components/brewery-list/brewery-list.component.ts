@@ -75,5 +75,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     return (this.breweryList.length === DEFAULT_SEARCH_LIMIT) && (this.searchRequest.limit !== MAX_SEARCH_LIMIT);
   }
 
-
+  getSearchInfoMessage():string {
+    return this.searchRequest?.query === '' ? ENTER_SEARCH_TEXT : NO_ELEMENTS_FOUND;
+  }
 }

@@ -1,9 +1,9 @@
 .search-history-entry {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #f0f0f0;
-  display: flex;
   padding: 0 0 0 16px;
   font-size: 0.8rem;
   font-weight: 400;
