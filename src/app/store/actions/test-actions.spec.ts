@@ -4,7 +4,7 @@ import {DEFAULT_SEARCH_LIMIT} from "../../components/search-components/brewery-l
 
 describe('Test Actions', () => {
   const searchBreweryRequest: SearchBreweryRequest = {query: 'Search', limit: DEFAULT_SEARCH_LIMIT};
-  it('SHOULD create a searchBrewery action', () => {
+  it('should create a searchBrewery action', () => {
     const action = Actions.searchBrewery(searchBreweryRequest);
     expect(action.type).toEqual(Actions.SearchAction.SEARCH_BREWERY);
     expect({...action}).toEqual({

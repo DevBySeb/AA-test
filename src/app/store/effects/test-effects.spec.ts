@@ -8,6 +8,7 @@ import * as fromActions from '../actions/actions'
 import {Brewery, SearchHistory} from "../models/model";
 import {LOCAL_STORAGE_SEARCH_HISTORY} from "../../app.component.constants";
 import {SearchBreweryService} from "../../services/search-brewery.service";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('Test Effects', () => {
   let actions$: Observable<Action>;
@@ -34,17 +35,17 @@ describe('Test Effects', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       providers: [
         SearchBreweryService,
         ApplicationEffects,
-        provideMockStore(),
         provideMockActions(() => actions$),
       ],
     });
     effects = TestBed.get<ApplicationEffects>(ApplicationEffects);
   }));
 
-  it('SHOULD dispatch setSearchHistory action WHEN loadSearchHistory action is dispatched', fakeAsync(() => {
+  it('should dispatch setSearchHistory action WHEN loadSearchHistory action is dispatched', fakeAsync(() => {
     const searchHistory: SearchHistory[] = [{query: '2 Dogz and A Guy Brewing', dateTime: 1637023690837}];
     actions$ = of({type: fromActions.SearchAction.LOAD_SEARCH_HISTORY});
     spyOn(window.localStorage, 'getItem').and.callFake(function () {
@@ -57,7 +58,7 @@ describe('Test Effects', () => {
   }));
 
 
-  it('SHOULD save in localStorage when setSearchHistory action is dispatched', fakeAsync(() => {
+  it('should save in localStorage when setSearchHistory action is dispatched', fakeAsync(() => {
     const oldSearchHistory: SearchHistory[] = [{query: '2 Dogz and A Guy Brewing', dateTime: 1637023690837}];
     const newSearchHistory: SearchHistory[] = [{query: 'This is new', dateTime: 1444443690837}];
     actions$ = of({type: fromActions.SearchAction.SET_SEARCH_HISTORY, searchHistory: newSearchHistory});
@@ -71,7 +72,7 @@ describe('Test Effects', () => {
     expect(setItemSpy).toHaveBeenCalledWith(LOCAL_STORAGE_SEARCH_HISTORY, JSON.stringify(newSearchHistory));
   }));
 
-  it('SHOULD update search history when brewerySelected action is dispatched', fakeAsync(() => {
+  it('should update search history when brewerySelected action is dispatched', fakeAsync(() => {
     const selectedBrewery = brewery;
     const oldSearchHistory: SearchHistory[] = [{query: '2 Dogz and A Guy Brewing', dateTime: 1637023690837}];
     actions$ = of({type: fromActions.SearchAction.BREWERY_SELECTED, selectedBrewery});
