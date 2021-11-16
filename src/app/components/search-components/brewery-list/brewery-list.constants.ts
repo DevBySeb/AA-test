@@ -4,7 +4,6 @@ export const DEFAULT_SEARCH_LIMIT = 5;
 export const MAX_SEARCH_LIMIT = 10;
 
 export enum CARD_STATE {
-  NONE,
   SEARCH_HISTORY,
   SEARCH_LIST,
   BREWERY_DETAIL

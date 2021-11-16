@@ -14,7 +14,8 @@ export const reducer = createReducer(
   initialApplicationState.searchBrewery as SearchBrewery,
   on(searchBrewery, (state, searchRequest) => ({
     ...state,
-    searchBreweryRequest: {...searchRequest, limit: searchRequest.limit},
+    searchBreweryRequest: {...searchRequest },
+    searchBreweryResponse: [],
     error: null,
     isLoading: true
   })),

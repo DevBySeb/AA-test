@@ -2,7 +2,6 @@ import {bufferTime, Observable, of} from "rxjs";
 import {Action} from "@ngrx/store";
 import {ApplicationEffects} from "./effects";
 import {async, fakeAsync, TestBed, tick} from "@angular/core/testing";
-import {provideMockStore} from "@ngrx/store/testing";
 import {provideMockActions} from "@ngrx/effects/testing";
 import * as fromActions from '../actions/actions'
 import {Brewery, SearchHistory} from "../models/model";
@@ -14,7 +13,7 @@ describe('Test Effects', () => {
   let actions$: Observable<Action>;
   let effects: ApplicationEffects;
   const brewery: Brewery = {
-    id: "g-man-brewery-g-man-sports-bar-tualatin",
+    id: "sports-bar-id",
     name: "Sports Bar",
     brewery_type: "micro",
     street: "18791 SW Martinazzi Ave",
@@ -45,7 +44,7 @@ describe('Test Effects', () => {
     effects = TestBed.get<ApplicationEffects>(ApplicationEffects);
   }));
 
-  it('should dispatch setSearchHistory action WHEN loadSearchHistory action is dispatched', fakeAsync(() => {
+  it('should dispatch setSearchHistory action when loadSearchHistory action is dispatched', fakeAsync(() => {
     const searchHistory: SearchHistory[] = [{query: '2 Dogz and A Guy Brewing', dateTime: 1637023690837}];
     actions$ = of({type: fromActions.SearchAction.LOAD_SEARCH_HISTORY});
     spyOn(window.localStorage, 'getItem').and.callFake(function () {
@@ -60,29 +59,31 @@ describe('Test Effects', () => {
 
   it('should save in localStorage when setSearchHistory action is dispatched', fakeAsync(() => {
     const oldSearchHistory: SearchHistory[] = [{query: '2 Dogz and A Guy Brewing', dateTime: 1637023690837}];
-    const newSearchHistory: SearchHistory[] = [{query: 'This is new', dateTime: 1444443690837}];
-    actions$ = of({type: fromActions.SearchAction.SET_SEARCH_HISTORY, searchHistory: newSearchHistory});
+    const currentSearchElement: SearchHistory[] = [{query: 'This is new', dateTime: 1444443690837}];
+    const setItemSpy = spyOn(window.localStorage, 'setItem');
     spyOn(window.localStorage, 'getItem').and.callFake(function () {
       return JSON.stringify(oldSearchHistory);
     });
-    const setItemSpy = spyOn(window.localStorage, 'setItem');
+    actions$ = of({type: fromActions.SearchAction.SET_SEARCH_HISTORY, searchHistory: currentSearchElement});
     effects.saveSearchHistory$.subscribe(action => {
     });
     tick(1000);
-    expect(setItemSpy).toHaveBeenCalledWith(LOCAL_STORAGE_SEARCH_HISTORY, JSON.stringify(newSearchHistory));
+    expect(setItemSpy).toHaveBeenCalledWith(LOCAL_STORAGE_SEARCH_HISTORY, JSON.stringify(currentSearchElement));
   }));
 
   it('should update search history when brewerySelected action is dispatched', fakeAsync(() => {
     const selectedBrewery = brewery;
     const oldSearchHistory: SearchHistory[] = [{query: '2 Dogz and A Guy Brewing', dateTime: 1637023690837}];
     actions$ = of({type: fromActions.SearchAction.BREWERY_SELECTED, selectedBrewery});
+
     spyOn(window.localStorage, 'getItem').and.callFake(function () {
       return JSON.stringify(oldSearchHistory);
     });
     effects.updateSearchHistory$.pipe(bufferTime(500)).subscribe(action => {
+      const expectedSearchHistoryAfterUpdate = [{query: 'Sports Bar', dateTime: Date.now()}, ...oldSearchHistory];
       expect(action[0]).toEqual(fromActions.setSelectedBrewery({selectedBrewery}));
       expect(action[1]).toEqual(fromActions.setSearchHistory(
-        {searchHistory: [{query: 'Sports Bar', dateTime: Date.now()}, ...oldSearchHistory]}));
+        {searchHistory: expectedSearchHistoryAfterUpdate }));
     });
   }));
 });

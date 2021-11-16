@@ -1,7 +1,7 @@
 <div *ngIf="error$ | async">
   <div class="box error">
     <mat-icon>info</mat-icon>
-    Error occured! Error Status : {{(error$|async)?.status}} &nbsp; {{(error$|async)?.message}}
+    Error occured! Error Code : {{(error$|async)?.status}} &nbsp; {{(error$|async)?.message}}
   </div>
 </div>
 

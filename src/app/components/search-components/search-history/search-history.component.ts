@@ -39,7 +39,7 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
     updatedSearchHistory.splice(index, 1);
     this.store.dispatch(setSearchHistory({searchHistory: updatedSearchHistory}));
     if (updatedSearchHistory.length === 0) {
-      this.store.dispatch(setView({view: CARD_STATE.NONE}));
+      this.store.dispatch(setView({view: CARD_STATE.SEARCH_LIST}));
     }
   }
 }

@@ -5,13 +5,13 @@ import {DEFAULT_SEARCH_LIMIT} from "../../components/search-components/brewery-l
 
 describe('Test Reducers', () => {
 
-  it('should return the default state', () => {
+  it('should return the initial state, if no matching action received', () => {
     const initialState = initialApplicationState.searchBrewery;
     const state = fromReducer.reducer(initialApplicationState.searchBrewery, {type: ''});
     expect(state).toBe(initialState);
   });
 
-  it('should save and update store on searchBrewery', () => {
+  it('should save and update store on searchBrewery action', () => {
     const initialState = initialApplicationState.searchBrewery;
     const searchBreweryRequest: SearchBreweryRequest = {query: 'Search', limit: DEFAULT_SEARCH_LIMIT};
     const action = fromActions.searchBrewery(searchBreweryRequest);

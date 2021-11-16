@@ -42,13 +42,13 @@ export class ApplicationEffects {
     this.actions.pipe(
       ofType(brewerySelected),
       switchMap(({selectedBrewery}) => {
-        const currentSearch: SearchHistory = {query: selectedBrewery.name, dateTime: Date.now()};
-        let updatedSearchHistoryArray = [currentSearch];
-        const localStorageValue = localStorage.getItem(LOCAL_STORAGE_SEARCH_HISTORY);
-        if (localStorageValue) {
+        const currentSearchItem: SearchHistory = {query: selectedBrewery.name, dateTime: Date.now()};
+        let updatedSearchHistoryArray = [currentSearchItem];
+        const localStorageSearchHistoryValue = localStorage.getItem(LOCAL_STORAGE_SEARCH_HISTORY);
+        if (localStorageSearchHistoryValue) {
           try {
-            const existingHistory = JSON.parse(localStorageValue);
-            updatedSearchHistoryArray.push(...existingHistory);
+            const existingSearchHistoryArray = JSON.parse(localStorageSearchHistoryValue);
+            updatedSearchHistoryArray.push(...existingSearchHistoryArray);
           } catch {
             localStorage.removeItem(LOCAL_STORAGE_SEARCH_HISTORY);
           }
@@ -63,8 +63,8 @@ export class ApplicationEffects {
     this.actions.pipe(
       ofType(setSearchHistory),
       map(({searchHistory}) => {
-        const localStorageValue = localStorage.getItem(LOCAL_STORAGE_SEARCH_HISTORY);
-        if (localStorageValue) {
+        const localStorageSearchHistoryValue = localStorage.getItem(LOCAL_STORAGE_SEARCH_HISTORY);
+        if (localStorageSearchHistoryValue) {
           localStorage.removeItem(LOCAL_STORAGE_SEARCH_HISTORY);
         }
         localStorage.setItem(LOCAL_STORAGE_SEARCH_HISTORY, JSON.stringify(searchHistory));
@@ -76,13 +76,13 @@ export class ApplicationEffects {
     this.actions.pipe(
       ofType(loadSearchHistory),
       switchMap(() => {
-        const localStorageValue = localStorage.getItem(LOCAL_STORAGE_SEARCH_HISTORY);
-        if (localStorageValue) {
+        const localStorageSearchHistoryValue = localStorage.getItem(LOCAL_STORAGE_SEARCH_HISTORY);
+        if (localStorageSearchHistoryValue) {
           try {
-            const existingHistory = JSON.parse(localStorageValue);
-            if (existingHistory?.length > 0) {
+            const existingSearchHistoryArray = JSON.parse(localStorageSearchHistoryValue);
+            if (existingSearchHistoryArray?.length > 0) {
               return [
-                setSearchHistory({searchHistory: existingHistory}),
+                setSearchHistory({searchHistory: existingSearchHistoryArray}),
                 setView({view: CARD_STATE.SEARCH_HISTORY})];
             }
           } catch {
