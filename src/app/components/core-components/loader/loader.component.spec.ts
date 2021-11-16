@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LoaderComponent} from './loader.component';
-import {MockStore, provideMockStore} from "@ngrx/store/testing";
+import {provideMockStore} from "@ngrx/store/testing";
 import {initialApplicationState} from "../../../store/models/model";
 
 describe('LoaderComponent', () => {

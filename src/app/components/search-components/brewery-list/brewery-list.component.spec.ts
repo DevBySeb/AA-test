@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {BreweryListComponent} from './brewery-list.component';
-import {DatePipe} from "../../../pipes/date-pipe";
+import {DatePipe} from "../../../shared/pipes/date-pipe";
 import {MockStore, provideMockStore} from "@ngrx/store/testing";
 import {Brewery, initialApplicationState} from "../../../store/models/model";
 import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from "@angular/core";
