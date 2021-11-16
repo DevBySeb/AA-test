@@ -8,9 +8,9 @@ import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from "@angular/core";
 import {By} from "@angular/platform-browser";
 import {selectBreweryResponse} from "../../../store/selectors/selectors";
 import {brewerySelected, setView} from "../../../store/actions/actions";
-import {CARD_STATE} from "./brewery-list.constants";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
+import {CARD_STATE} from "../search-container/search-container.constants";
 
 describe('BreweryListComponent', () => {
   let component: BreweryListComponent;

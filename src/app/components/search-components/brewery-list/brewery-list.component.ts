@@ -4,14 +4,13 @@ import {selectBreweryRequest, selectBreweryResponse} from "../../../store/select
 import {ApplicationState, Brewery, SearchBreweryRequest} from "../../../store/models/model";
 import {Subscription} from "rxjs";
 import {
-  CARD_STATE,
   DEFAULT_SEARCH_LIMIT,
-  ENTER_SEARCH_TEXT,
   MAX_SEARCH_LIMIT,
   NO_ELEMENTS_FOUND
 } from "./brewery-list.constants";
 import {brewerySelected, searchBrewery, setView} from "../../../store/actions/actions";
 import {MatSelectionListChange} from '@angular/material/list';
+import {CARD_STATE} from "../search-container/search-container.constants";
 
 
 @Component({
@@ -21,7 +20,6 @@ import {MatSelectionListChange} from '@angular/material/list';
 })
 export class BreweryListComponent implements OnInit, OnDestroy {
   readonly NO_ELEMENTS_FOUND = NO_ELEMENTS_FOUND;
-  readonly ENTER_SEARCH_TEXT = ENTER_SEARCH_TEXT;
   readonly MAX_SEARCH_LIMIT = MAX_SEARCH_LIMIT;
   subscription?: Subscription;
   breweryList: Brewery[] = [];
@@ -75,7 +73,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     return (this.breweryList.length === DEFAULT_SEARCH_LIMIT) && (this.searchRequest.limit !== MAX_SEARCH_LIMIT);
   }
 
-  getSearchInfoMessage():string {
-    return this.searchRequest?.query === '' ? ENTER_SEARCH_TEXT : NO_ELEMENTS_FOUND;
+  isNoBreweryFound():boolean {
+    return (this.breweryList.length === 0) && (this.searchRequest?.query !== '');
   }
 }

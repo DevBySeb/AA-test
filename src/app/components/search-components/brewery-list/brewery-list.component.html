@@ -7,7 +7,7 @@
   <div *ngIf="isShowAllResultButtonVisible()" class="actions">
     <button (click)="fetchCompleteBreweryList()" class="buttons" mat-stroked-button>SHOW ALL RESULTS</button>
   </div>
-  <app-info-box *ngIf="(breweryList.length === 0)" [message]="getSearchInfoMessage()">
+  <app-info-box *ngIf="isNoBreweryFound()" [message]="NO_ELEMENTS_FOUND">
   </app-info-box>
 </div>
 

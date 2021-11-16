@@ -1,7 +1,7 @@
 import {createAction, props} from '@ngrx/store';
 import {Brewery, SearchBreweryRequest, SearchHistory} from "../models/model";
 import {HttpErrorResponse} from "@angular/common/http";
-import {CARD_STATE} from "../../components/search-components/brewery-list/brewery-list.constants";
+import {CARD_STATE} from "../../components/search-components/search-container/search-container.constants";
 
 export const SearchAction = {
   SEARCH_BREWERY: '[ApplicationSearch] Search for a brewery',

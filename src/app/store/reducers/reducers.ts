@@ -8,7 +8,7 @@ import {
   setSelectedBrewery,
   setView
 } from '../actions/actions';
-import {CARD_STATE} from "../../components/search-components/brewery-list/brewery-list.constants";
+import {CARD_STATE} from "../../components/search-components/search-container/search-container.constants";
 
 export const reducer = createReducer(
   initialApplicationState.searchBrewery as SearchBrewery,

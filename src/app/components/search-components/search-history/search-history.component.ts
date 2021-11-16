@@ -4,7 +4,7 @@ import {ApplicationState, SearchHistory} from "../../../store/models/model";
 import {select, Store} from "@ngrx/store";
 import {selectSearchHistory} from "../../../store/selectors/selectors";
 import {setSearchHistory, setView} from "../../../store/actions/actions";
-import {CARD_STATE} from "../brewery-list/brewery-list.constants";
+import {CARD_STATE} from "../search-container/search-container.constants";
 
 @Component({
   selector: 'app-search-history',
@@ -39,7 +39,7 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
     updatedSearchHistory.splice(index, 1);
     this.store.dispatch(setSearchHistory({searchHistory: updatedSearchHistory}));
     if (updatedSearchHistory.length === 0) {
-      this.store.dispatch(setView({view: CARD_STATE.SEARCH_LIST}));
+      this.store.dispatch(setView({view: CARD_STATE.NONE}));
     }
   }
 }

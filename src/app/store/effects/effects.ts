@@ -13,9 +13,9 @@ import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {catchError, map, mergeMap, switchMap} from "rxjs/operators";
 import {Brewery, SearchBreweryRequest, SearchHistory} from "../models/model";
 import {of} from "rxjs";
-import {CARD_STATE} from "../../components/search-components/brewery-list/brewery-list.constants";
 import {LOCAL_STORAGE_SEARCH_HISTORY} from "../../app.component.constants";
 import {SearchBreweryService} from "../../services/search-brewery.service";
+import {CARD_STATE} from "../../components/search-components/search-container/search-container.constants";
 
 @Injectable()
 export class ApplicationEffects {

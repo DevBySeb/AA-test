@@ -2,6 +2,7 @@
   <app-loader></app-loader>
   <app-info-box [error$]="error$"></app-info-box>
   <div [ngSwitch]="cardState$ | async">
+    <app-info-box *ngSwitchCase="CARD_STATE.NONE" [message]="ENTER_SEARCH_TEXT"></app-info-box>
     <app-brewery-list *ngSwitchCase="CARD_STATE.SEARCH_LIST"></app-brewery-list>
     <app-brewery-detail *ngSwitchCase="CARD_STATE.BREWERY_DETAIL"></app-brewery-detail>
     <app-search-history *ngSwitchCase="CARD_STATE.SEARCH_HISTORY"></app-search-history>

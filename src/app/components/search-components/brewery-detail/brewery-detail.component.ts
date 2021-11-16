@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {ApplicationState, Brewery} from "../../../store/models/model";
 import {select, Store} from "@ngrx/store";
-import {CARD_STATE} from "../brewery-list/brewery-list.constants";
 import {setSelectedBrewery, setView} from "../../../store/actions/actions";
 import {selectSelectedBrewery} from "../../../store/selectors/selectors";
 import {Observable} from "rxjs";
+import {CARD_STATE} from "../search-container/search-container.constants";
 
 
 @Component({

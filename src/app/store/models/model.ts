@@ -1,5 +1,6 @@
-import {CARD_STATE, DEFAULT_SEARCH_LIMIT} from "../../components/search-components/brewery-list/brewery-list.constants";
+import {DEFAULT_SEARCH_LIMIT} from "../../components/search-components/brewery-list/brewery-list.constants";
 import {HttpErrorResponse} from "@angular/common/http";
+import {CARD_STATE} from "../../components/search-components/search-container/search-container.constants";
 
 export interface SearchBrewery {
   searchBreweryRequest: SearchBreweryRequest;
@@ -25,7 +26,7 @@ export const initialApplicationState: ApplicationState = {
     searchBreweryResponse: [],
     error: null,
     isLoading: false,
-    view: CARD_STATE.SEARCH_LIST,
+    view: CARD_STATE.NONE,
     selectedBrewery: null,
     searchHistory: []
   }
