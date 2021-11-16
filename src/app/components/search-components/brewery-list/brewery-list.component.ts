@@ -23,7 +23,7 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   readonly NO_ELEMENTS_FOUND = NO_ELEMENTS_FOUND;
   readonly ENTER_SEARCH_TEXT = ENTER_SEARCH_TEXT;
   readonly MAX_SEARCH_LIMIT = MAX_SEARCH_LIMIT;
-  subscription: Subscription | undefined;
+  subscription?: Subscription;
   breweryList: Brewery[] = [];
   searchRequest: SearchBreweryRequest = {
     query: '',
@@ -34,16 +34,21 @@ export class BreweryListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.store.pipe(select(selectBreweryResponse))
+    this.subscription = this.getBreweryListSubscription();
+    this.subscription.add(this.getSearchRequestSubscription());
+  }
+
+  getBreweryListSubscription(): Subscription {
+    return this.store.pipe(select(selectBreweryResponse))
       .subscribe((searchBreweryResponse) => {
         this.breweryList = searchBreweryResponse;
       });
+  }
 
-    const requestSubscription = this.store.pipe(select(selectBreweryRequest)).subscribe((searchBreweryRequest) => {
+  getSearchRequestSubscription(): Subscription {
+    return this.store.pipe(select(selectBreweryRequest)).subscribe((searchBreweryRequest) => {
       this.searchRequest = searchBreweryRequest;
     });
-    this.subscription.add(requestSubscription);
-
   }
 
   ngOnDestroy(): void {
@@ -52,13 +57,13 @@ export class BreweryListComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleSelectionChange(event: MatSelectionListChange): void {
+  handleBreweryListElementClick(event: MatSelectionListChange): void {
     this.store.dispatch(setView({view: CARD_STATE.BREWERY_DETAIL}));
     this.store.dispatch(brewerySelected({selectedBrewery: event.options[0].value}));
   }
 
 
-  fetchCompleteList(): void {
+  fetchCompleteBreweryList(): void {
     const searchRequest: SearchBreweryRequest = {
       query: this.searchRequest.query,
       limit: MAX_SEARCH_LIMIT

@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {BreweryListComponent} from './brewery-list.component';
-import {DatePipe} from "../../../shared/pipes/date-pipe";
+import {FormatDatePipe} from "../../../shared/pipes/format-date.pipe";
 import {MockStore, provideMockStore} from "@ngrx/store/testing";
 import {Brewery, initialApplicationState} from "../../../store/models/model";
 import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from "@angular/core";
@@ -59,7 +59,7 @@ describe('BreweryListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatListModule, MatIconModule],
-      declarations: [BreweryListComponent, DatePipe],
+      declarations: [BreweryListComponent, FormatDatePipe],
       providers: [provideMockStore({initialState: initialApplicationState})],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
@@ -90,13 +90,13 @@ describe('BreweryListComponent', () => {
 
   it('should dispatch brewerySelected when native element clicked', () => {
     const dispatchSpy = spyOn(store, 'dispatch').and.callThrough();
-    const handleSelectionChangeSpy = spyOn(component, 'handleSelectionChange').and.callThrough();
+    const handleBreweryListElementClickSpy = spyOn(component, 'handleBreweryListElementClick').and.callThrough();
     store.overrideSelector(selectBreweryResponse, searchBreweryResponse);
     store.refreshState();
     fixture.detectChanges();
     const listElement = fixture.debugElement.query(By.css('mat-list-option'));
     listElement.triggerEventHandler('click', null);
-    expect(handleSelectionChangeSpy).toHaveBeenCalled();
+    expect(handleBreweryListElementClickSpy).toHaveBeenCalled();
     expect(dispatchSpy).toHaveBeenCalledWith(brewerySelected({selectedBrewery: searchBreweryResponse[0]}));
     expect(dispatchSpy).toHaveBeenCalledWith(setView({view: CARD_STATE.BREWERY_DETAIL}));
   });

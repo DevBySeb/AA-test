@@ -12,20 +12,19 @@ import {
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {catchError, map, mergeMap, switchMap} from "rxjs/operators";
 import {Brewery, SearchBreweryRequest, SearchHistory} from "../models/model";
-import {HttpClient} from "@angular/common/http";
 import {of} from "rxjs";
 import {CARD_STATE} from "../../components/search-components/brewery-list/brewery-list.constants";
 import {LOCAL_STORAGE_SEARCH_HISTORY} from "../../app.component.constants";
+import {SearchBreweryService} from "../../services/search-brewery.service";
 
 @Injectable()
 export class ApplicationEffects {
-
 
   searchBrewery$ = createEffect(() =>
     this.actions.pipe(
       ofType(searchBrewery),
       mergeMap((searchBreweryRequest: SearchBreweryRequest) => {
-        return this.sendSearchRequest(searchBreweryRequest)
+        return this.searchBreweryService.getSearchBreweryRequest(searchBreweryRequest)
           .pipe(
             map((searchBreweryResponse: Brewery[]) =>
               searchSuccess({searchBreweryResponse})
@@ -98,17 +97,8 @@ export class ApplicationEffects {
 
   constructor(
     private actions: Actions,
-    private http: HttpClient,
+    private searchBreweryService: SearchBreweryService
   ) {
-  }
-
-  getSearchBreweryURL({query, limit}: SearchBreweryRequest): string {
-    return `https://api.openbrewerydb.org/breweries/search?page=1&per_page=${limit}&query=${query}`;
-  }
-
-  sendSearchRequest(searchBreweryRequest: SearchBreweryRequest) {
-    const searchBreweryURL = this.getSearchBreweryURL(searchBreweryRequest);
-    return this.http.get<Brewery[]>(searchBreweryURL);
   }
 
 }

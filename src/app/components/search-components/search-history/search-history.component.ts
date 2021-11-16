@@ -12,14 +12,18 @@ import {CARD_STATE} from "../brewery-list/brewery-list.constants";
   styleUrls: ['./search-history.component.scss']
 })
 export class SearchHistoryComponent implements OnInit, OnDestroy {
-  subscription: Subscription | undefined;
+  subscription?: Subscription;
   searchHistory: SearchHistory[] = [];
 
   constructor(private store: Store<ApplicationState>) {
   }
 
   ngOnInit(): void {
-    this.subscription = this.store.pipe(select(selectSearchHistory)).subscribe(searchHistory => {
+    this.subscription = this.getSearchHistorySubscription();
+  }
+
+  getSearchHistorySubscription(): Subscription {
+    return this.store.pipe(select(selectSearchHistory)).subscribe(searchHistory => {
       this.searchHistory = searchHistory;
     });
   }
@@ -30,7 +34,7 @@ export class SearchHistoryComponent implements OnInit, OnDestroy {
     }
   }
 
-  removeHistoryElement(index: number): void {
+  removeBreweryHistoryElement(index: number): void {
     const updatedSearchHistory = [...this.searchHistory];
     updatedSearchHistory.splice(index, 1);
     this.store.dispatch(setSearchHistory({searchHistory: updatedSearchHistory}));

@@ -6,7 +6,7 @@ import {selectSearchHistory} from "../../../store/selectors/selectors";
 import {initialApplicationState, SearchHistory} from "../../../store/models/model";
 import {By} from "@angular/platform-browser";
 import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from "@angular/core";
-import {DatePipe} from "../../../shared/pipes/date-pipe";
+import {FormatDatePipe} from "../../../shared/pipes/format-date.pipe";
 import {setSearchHistory} from "../../../store/actions/actions";
 import {MatIconModule} from "@angular/material/icon";
 
@@ -22,7 +22,7 @@ describe('SearchHistoryComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatIconModule],
-      declarations: [SearchHistoryComponent, DatePipe],
+      declarations: [SearchHistoryComponent, FormatDatePipe],
       providers: [provideMockStore({initialState: initialApplicationState})],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
@@ -57,7 +57,7 @@ describe('SearchHistoryComponent', () => {
     store.overrideSelector(selectSearchHistory, searchHistory);
     store.refreshState();
     fixture.detectChanges();
-    component.removeHistoryElement(indexToBeRemoved);
+    component.removeBreweryHistoryElement(indexToBeRemoved);
     expect(dispatchSpy).toHaveBeenCalledWith(setSearchHistory({searchHistory: searchHistory.slice(1)}));
   });
 });

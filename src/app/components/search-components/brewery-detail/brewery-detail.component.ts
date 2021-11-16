@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ApplicationState, Brewery} from "../../../store/models/model";
 import {select, Store} from "@ngrx/store";
 import {CARD_STATE} from "../brewery-list/brewery-list.constants";
@@ -12,17 +12,13 @@ import {Observable} from "rxjs";
   templateUrl: './brewery-detail.component.html',
   styleUrls: ['./brewery-detail.component.scss']
 })
-export class BreweryDetailComponent implements OnInit {
+export class BreweryDetailComponent {
   brewery$: Observable<Brewery | null> = this.store.pipe(select(selectSelectedBrewery));
 
   constructor(private store: Store<ApplicationState>) {
   }
 
-  ngOnInit(): void {
-
-  }
-
-  close(): void {
+  closeBreweryDetailView(): void {
     this.store.dispatch(setView({view: CARD_STATE.SEARCH_HISTORY}));
     this.store.dispatch(setSelectedBrewery({selectedBrewery: null}));
   }

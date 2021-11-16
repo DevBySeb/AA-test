@@ -5,9 +5,9 @@ import {async, fakeAsync, TestBed, tick} from "@angular/core/testing";
 import {provideMockStore} from "@ngrx/store/testing";
 import {provideMockActions} from "@ngrx/effects/testing";
 import * as fromActions from '../actions/actions'
-import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {Brewery, SearchHistory} from "../models/model";
 import {LOCAL_STORAGE_SEARCH_HISTORY} from "../../app.component.constants";
+import {SearchBreweryService} from "../../services/search-brewery.service";
 
 describe('Test Effects', () => {
   let actions$: Observable<Action>;
@@ -34,8 +34,8 @@ describe('Test Effects', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
       providers: [
+        SearchBreweryService,
         ApplicationEffects,
         provideMockStore(),
         provideMockActions(() => actions$),

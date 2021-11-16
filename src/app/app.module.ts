@@ -21,7 +21,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {BreweryDetailComponent} from './components/search-components/brewery-detail/brewery-detail.component';
-import {DatePipe} from "./shared/pipes/date-pipe";
+import {FormatDatePipe} from "./shared/pipes/format-date.pipe";
 import {SearchBarComponent} from "./components/search-components/search-bar/search-bar.component";
 import {SearchHistoryComponent} from './components/search-components/search-history/search-history.component';
 import {MatListModule} from "@angular/material/list";
@@ -29,6 +29,7 @@ import {CommonModule} from "@angular/common";
 import {SearchContainerComponent} from './components/search-components/search-container/search-container.component';
 import {LoaderComponent} from './components/core-components/loader/loader.component';
 import {InfoBoxComponent} from './shared/components/info-box/info-box.component';
+import {SearchBreweryService} from "./services/search-brewery.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import {InfoBoxComponent} from './shared/components/info-box/info-box.component'
     NavbarComponent,
     FooterComponent,
     BreweryDetailComponent,
-    DatePipe,
+    FormatDatePipe,
     SearchHistoryComponent,
     SearchContainerComponent,
     LoaderComponent,
@@ -61,7 +62,7 @@ import {InfoBoxComponent} from './shared/components/info-box/info-box.component'
     MatListModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [SearchBreweryService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

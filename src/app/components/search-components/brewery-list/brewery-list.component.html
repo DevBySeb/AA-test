@@ -1,11 +1,11 @@
 <div class="container">
-  <mat-selection-list (selectionChange)="handleSelectionChange($event)" [multiple]="false" class="brewery-list">
+  <mat-selection-list (selectionChange)="handleBreweryListElementClick($event)" [multiple]="false" class="brewery-list">
     <mat-list-option *ngFor="let brewery of breweryList" [value]="brewery">
       {{brewery.name}}
     </mat-list-option>
   </mat-selection-list>
   <div *ngIf="(breweryList.length !== 0) && (searchRequest.limit !== MAX_SEARCH_LIMIT)" class="actions">
-    <button (click)="fetchCompleteList()" class="buttons" mat-stroked-button>SHOW ALL RESULTS</button>
+    <button (click)="fetchCompleteBreweryList()" class="buttons" mat-stroked-button>SHOW ALL RESULTS</button>
   </div>
   <app-info-box *ngIf="(breweryList.length === 0)"
                 [message]="searchRequest?.query === '' ?
