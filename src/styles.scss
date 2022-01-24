@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import './theme.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto';
+  min-height: 100vh;
+  line-height: 1.5;
+  background: linear-gradient(180deg, $backgroud-gradient-color-top 0%, $backgroud-gradient-color-bottom 100%);
+}

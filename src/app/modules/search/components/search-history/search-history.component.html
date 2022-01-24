@@ -1,0 +1,6 @@
+<h1>Search history</h1>
+<app-search-history-item *ngFor="let searchHistoryItem of searchHistoryItems;  let i = index"
+    [searchHistoryItem]="searchHistoryItem" 
+    (deleteHistoryItem)="onDeleteHistoryItem(i)"
+    (selectedHistoryItem)="selectHistoryItem(i)">
+</app-search-history-item>

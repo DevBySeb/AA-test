@@ -1,0 +1,17 @@
+<form [formGroup]="searchForm" novalidate>
+    <app-search-input formControlName="search"></app-search-input>
+</form>
+
+<ng-container *ngIf="resultsData$ | async as results">
+    <app-search-results *ngIf="(!!results.length && !searchDataDetails) else searchHistory" [results]="results"
+        (showAllResults)="onShowAllResults($event)" (selectedResult)="onSelectedResult($event)"
+        [showAllResultsButton]="!showingAllResults"></app-search-results>
+</ng-container>
+
+<app-search-result-details *ngIf="searchDataDetails" [searchData]="searchDataDetails" (detailsClose)="onCloseDetails()">
+</app-search-result-details>
+
+<ng-template #searchHistory>
+    <app-search-history *ngIf="hasSavedSearches && !searchDataDetails"
+        (selectSearchHistoryItem)="onSelectSearchHistoryItem($event)"></app-search-history>
+</ng-template>

@@ -1,0 +1,27 @@
+@import '/src/theme.scss';
+
+:host {
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 11px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    flex-grow: 1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #717171;
+    cursor: pointer;
+}
+
+#remove-history {
+    height: 15px;
+    width: 15px;
+    @include close-button
+}

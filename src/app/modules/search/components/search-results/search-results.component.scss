@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    background: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 4px 4px;
+    flex-direction: column;
+}
+
+#show-all-results-button {
+    width: 120px;
+    height: 26px;
+    background: #c4c4c4;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 14px;
+    border: none;
+    text-align: center;
+    color: #4e4a4a;
+    margin: 12px 12px 16px 12px;
+    align-self: flex-end;
+}

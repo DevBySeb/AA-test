@@ -1,0 +1,2 @@
+<app-search-result *ngFor="let result of results" [result]="result" (click)="onResultSelect(result)"></app-search-result>
+<button id="show-all-results-button" *ngIf="showAllResultsButton" (click)="onShowAllResults()">See all results</button>

@@ -1,0 +1,15 @@
+
+// Theme colors
+$backgroud-gradient-color-top: #304a70;
+$backgroud-gradient-color-bottom: #5983c1;
+
+//....
+
+@mixin close-button {
+  border: 0;
+  background-color: transparent;
+  background-image: url("/assets/close_button.svg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
