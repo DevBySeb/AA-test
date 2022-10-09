@@ -1,0 +1,27 @@
+<div *ngIf="brewery$ | async as brewery" class="card">
+  <header>
+    <div class="title">{{brewery.name}}</div>
+    <div>
+      <button (click)="closeBreweryDetailView()" aria-label="Close" mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </header>
+
+  <div class="card-content">
+    <div class="row"><span class="detail-left">Name</span> : <span class="detail-right">{{brewery.name}}</span></div>
+    <div class="row"><span class="detail-left">Brewery Type</span> : <span
+      class="detail-right">{{brewery.brewery_type}}</span></div>
+    <div class="row"><span class="detail-left">Street</span> : <span class="detail-right">{{brewery.street}}</span>
+    </div>
+    <div class="row"><span class="detail-left">City</span> : <span class="detail-right">{{brewery.city}}</span></div>
+    <div class="row"><span class="detail-left">State</span> : <span class="detail-right">{{brewery.state}}</span></div>
+    <div class="row"><span class="detail-left">Country</span> : <span class="detail-right">{{brewery.country}}</span>
+    </div>
+    <div class="row"><span class="detail-left">Phone</span> : <span class="detail-right">{{brewery.phone}}</span></div>
+    <div class="row"><span class="detail-left">Website</span> : <span
+      class="detail-right">{{brewery.website_url}}</span></div>
+    <div class="row"><span class="detail-left">Updated At</span> : <span
+      class="detail-right">{{brewery.updated_at | formatDate}}</span></div>
+  </div>
+</div>

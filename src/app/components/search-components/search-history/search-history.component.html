@@ -1,0 +1,14 @@
+<div class="card">
+  <p>Search History</p>
+  <div *ngFor="let element of searchHistory;let i=index" class="search-history-entry">
+    <div class="title">
+      <span class="query">{{element.query}}</span>
+      <span>{{element.dateTime | formatDate}}</span>
+    </div>
+    <div class="close-button">
+      <button (click)="removeBreweryHistoryElement(i)" aria-label="Close" mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

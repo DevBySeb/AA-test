@@ -1,0 +1,30 @@
+
+.box {
+  padding: 12px;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  mat-icon {
+    margin-right: 12px;
+  }
+}
+
+.error {
+  background-color: #ffe6e6;
+
+  mat-icon {
+    color: #f86d6d;
+  }
+}
+
+.info {
+  background-color: rgba(204, 237, 252, 0.56);
+
+  mat-icon {
+    color: grey;
+  }
+}

@@ -1,0 +1,39 @@
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.buttons {
+  margin-top: 10px;
+  height: 38px;
+  color: dodgerblue;
+}
+
+.brewery-list {
+  border: 1px solid #f0f0f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+}
+
+::ng-deep .mat-list-option {
+  border: 1px lightgrey solid;
+}
+
+::ng-deep mat-selection-list.mat-list-base {
+  padding-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  ::ng-deep .mat-list-base .mat-list-item, button {
+    font-size: 0.9em;
+  }
+}

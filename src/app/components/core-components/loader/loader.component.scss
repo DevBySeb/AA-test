@@ -1,0 +1,14 @@
+.overlay-layer {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.spinner-position {
+  z-index: 10;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #2A79FF !important;
+}
